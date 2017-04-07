@@ -1,0 +1,19 @@
+{
+  "name": "tts4trivium-common",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "pretest": "npm install && tsc",
+    "test": "mocha --timeout 15000 --reporter list --recursive ./test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/chai": "3.4.34",
+    "@types/mocha": "2.2.32",
+    "@types/node": "6.0.46",
+    "chai": "3.5.0",
+    "mocha": "3.1.2",
+    "typescript": "2.0.9"
+  }
+}

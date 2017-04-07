@@ -1,0 +1,13 @@
+{
+  "name": "users-crud-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "server": "cd server; npm run linux-only:start",
+    "client": "cd client; npm run start",
+    "start": "concurrently --kill-others \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "3.4.0"
+  }
+}

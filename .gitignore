@@ -1,0 +1,50 @@
+# Created by .ignore support plugin (hsz.mobi)
+# dependencies
+/**/node_modules
+
+# IDEs and editors
+
+/.idea
+/.vscode
+.project
+.classpath
+*.launch
+.settings/
+/**/*.iml
+
+#common
+
+/common/**/*.js
+/common/**/*.js.map
+
+#client
+
+# compiled output
+client/dist
+client/tmp
+
+client/src/**/*.js
+client/src/**/*.js.map
+
+# e2e
+client/e2e/*.js
+client/e2e/*.map
+
+#server
+
+server/app/**/*.js
+server/app/**/*.js.map
+server/bin/*.js
+server/bin/*.js.map
+
+server/typings/*.js
+server/typings/*.js.map
+server/typings/**/*.js
+server/typings/**/*.js.map
+
+/aws-code-deploy/
+server/distribution/
+
+**/*.log.*
+**/*.log
+

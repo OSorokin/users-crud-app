@@ -1,0 +1,96 @@
+
+<div *ngIf="user">
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <h4 class="pull-left" *ngIf="isNew">{{ 'COMMONS.ADD_USER_PAGE_TITLE' | translate}}</h4>
+      <h4 class="pull-left" *ngIf="!isNew">{{ 'COMMONS.EDIT_USER_PAGE_TITLE' | translate}}, ID:{{id}}</h4>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+    </div>
+  </div>
+
+  <alert type="success" dismissible="true" *ngIf="isSuccessSaveUser">{{ 'USER.SUCCESS.SAVE' | translate }}</alert>
+  <alert type="danger" dismissible="true" *ngIf="isErrorSaveUser">{{ 'USER.ERRORS.SAVE' | translate }}</alert>
+
+  <form *ngIf="form" [formGroup]="form" >
+
+    <div class="form-group">
+      <input class="form-control"  formControlName="name" placeholder="{{ 'USER.NAME' | translate }}">
+      <alert type="danger" *ngIf="!form.controls['name'].valid && form.controls['name'].touched" >
+        {{ 'USER.ERRORS.VALIDATE.NAME' | translate }}
+      </alert>
+    </div>
+
+    <div class="form-group">
+      <input class="form-control"  formControlName="surname" placeholder="{{ 'USER.SURNAME' | translate }}">
+      <alert type="danger" *ngIf="!form.controls['surname'].valid && form.controls['surname'].touched">
+        {{ 'USER.ERRORS.VALIDATE.SURNAME' | translate }}
+      </alert>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+          <input class="form-control" formControlName="birth_date" (ngModelChange)="onSelectDate($event)" placeholder="{{ 'USER.BIRTH_DATE' | translate }}"
+                 ngbDatepicker #dtp="ngbDatepicker" >
+          <div class="input-group-addon" (click)="dtp.toggle()" >
+              <i class="fa fa-calendar" aria-hidden="true" ></i>
+          </div>
+      </div>
+      <alert type="danger" *ngIf="!form.controls['birth_date'].valid && form.controls['birth_date'].touched || form.controls['birth_date'].dirty && !form.controls['birth_date'].valid" class="valid-error">
+          {{ 'USER.ERRORS.VALIDATE.BIRTH_DATE' | translate }}
+      </alert>
+    </div>
+
+    <div class="form-group">
+      <select class="form-control" formControlName="gender">
+        <option *ngFor="let g of genders" [ngValue]="g">
+          <ng-container *ngIf="g == '0'" >
+            {{ 'COMMONS.GENDER.MALE' | translate }}
+          </ng-container>
+          <ng-container *ngIf="g == '1'" >
+            {{ 'COMMONS.GENDER.FEMALE' | translate }}
+          </ng-container>
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" formControlName="email" placeholder="E-mail" />
+      <alert type="danger" *ngIf="!form.controls['email'].valid && form.controls['email'].touched" class="valid-error">
+        {{ 'USER.ERRORS.VALIDATE.EMAIL' | translate }}
+      </alert>
+    </div>
+
+      <div class="form-group" >
+          <select *ngIf="isNew" class="form-control" formControlName="position" (ngModelChange)="onValCh($event)">
+              <option selected disabled></option>
+              <option *ngFor="let ps of positions" [attr.value]="ps.id">{{ps.title}}</option>
+          </select>
+          <select *ngIf="user.id && !isNew && positions" class="form-control" formControlName="position" (ngModelChange)="onValCh($event)" >
+              <option *ngFor="let ps of positions" [attr.value]="ps.id" [selected]="ps.id === user.position.id" >{{ps.title}}</option>
+          </select>
+      </div>
+      <div class="form-group" >
+          <select *ngIf="isNew" class="form-control" formControlName="project" (ngModelChange)="onValCh($event)">
+              <option selected disabled></option>
+              <option *ngFor="let pt of projects" [attr.value]="pt.id">{{pt.title}}</option>
+          </select>
+          <select *ngIf="user.id && !isNew && projects" class="form-control" formControlName="project" (ngModelChange)="onValCh($event)" >
+              <option *ngFor="let pt of projects" [attr.value]="pt.id" [selected]="pt.id === user.project.id" >{{pt.title}}</option>
+          </select>
+      </div>
+
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4">
+        <button type="button" class="btn btn-primary" [disabled]="!form.valid" (click)="onSaveUser()">
+          {{ 'COMMONS.SAVE' | translate }}
+        </button>
+        <a class="btn btn-default" routerLink="" role="button">{{ 'COMMONS.BACK' | translate }}</a>
+      </div>
+      <div class="col-xs-8 col-sm-8 col-md-8"></div>
+    </div>
+
+  </form>
+
+</div>

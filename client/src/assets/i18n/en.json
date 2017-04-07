@@ -1,0 +1,44 @@
+{
+  "USER":{
+    "NAME": "Name",
+    "SURNAME": "Surname",
+    "BIRTH_DATE": "Birth date",
+    "GENDER": "Gender",
+    "POSITION": "Position",
+    "PROJECT": "Project",
+    "ERRORS": {
+      "ADD": "user add error",
+      "UPDATE": "user update error",
+      "SAVE": "Data save error",
+      "VALIDATE":{
+        "NAME": "Incorrect name",
+        "SURNAME": "Incorrect surname",
+        "BIRTH_DATE": "Incorrect birth date",
+        "EMAIL": "Incorrect email"
+      }
+    },
+    "SUCCESS": {
+      "ADD": "user add success",
+      "UPDATE": "user update success",
+      "SAVE": "Data save success"
+    }
+  },
+  "COMMONS": {
+    "SELECT_LANGUAGE": "Change language",
+    "ADD": "Add",
+    "SAVE": "Save",
+    "ADD_USER": "Add user",
+    "UPDATE": "Update",
+    "TO_LIST": "To list",
+    "BACK": "Back",
+    "ADD_USER_PAGE_TITLE": "ADD USER",
+    "EDIT_USER_PAGE_TITLE": "EDIT USER",
+    "GENDER":{
+      "MALE": "Male",
+      "FEMALE": "Female"
+    },
+    "YES":"Yes",
+    "NO":"No",
+    "DELETE?":"Delete?"
+  }
+}

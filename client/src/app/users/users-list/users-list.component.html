@@ -1,0 +1,48 @@
+<a class="btn btn-primary" routerLink="/users/add" role="button">{{ 'COMMONS.ADD_USER' | translate }}</a>
+<hr/>
+<div class="table-responsive">
+  <table class="table table-hover table-condensed">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>{{ 'USER.NAME' | translate }}</th>
+      <th>{{ 'USER.SURNAME' | translate }}</th>
+      <th class="hidden-xs">{{ 'USER.BIRTH_DATE' | translate }}</th>
+      <th class="hidden-xs">{{ 'USER.GENDER' | translate }}</th>
+      <th class="hidden-xs">E-mail</th>
+      <th>{{ 'USER.POSITION' | translate }}</th>
+      <th>{{ 'USER.PROJECT' | translate }}</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <th>{{user?.id}}</th>
+      <td>{{user?.name}}</td>
+      <td>{{user?.surname}}</td>
+      <th class="hidden-xs">{{user?.birth_date}}</th>
+      <td *ngIf="user.gender == '0'" class="hidden-xs">
+        {{ 'COMMONS.GENDER.MALE' | translate }}
+      </td>
+      <td *ngIf="user.gender == '1'" class="hidden-xs">
+        {{ 'COMMONS.GENDER.FEMALE' | translate }}
+      </td>
+      <td class="hidden-xs">{{user?.email}}</td>
+      <td>{{user?.position.title}}</td>
+      <td>{{user?.project.title}}</td>
+      <td>
+        <button type="button" class="close" aria-hidden="true" [routerLink]="['/users/edit', user?.id]">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="close" aria-hidden="true" (click)="onUserDelete(user)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<app-user-delete-modal ></app-user-delete-modal>

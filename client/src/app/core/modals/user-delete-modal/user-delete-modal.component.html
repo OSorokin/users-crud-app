@@ -1,0 +1,9 @@
+<template #content let-c="close" let-d="dismiss">
+    <div class="modal-body">
+      <h3>{{'COMMONS.DELETE?' | translate }}</h3>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="c('confirmed')">{{ 'COMMONS.YES' | translate }}</button>
+      <button type="button" class="btn btn-secondary" (click)="c('not confirmed')" >{{ 'COMMONS.NO' | translate }}</button>
+    </div>
+</template>
