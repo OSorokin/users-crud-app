@@ -1,7 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 # dependencies
 /**/node_modules
-
+/distribution/
 # IDEs and editors
 
 /.idea

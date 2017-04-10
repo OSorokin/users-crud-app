@@ -6,7 +6,6 @@ import { ProjectsService } from '../../shared/services/projects.service';
 import { PositionsService } from '../../shared/services/positions.service';
 import { TranslateService } from 'ng2-translate';
 import { isSuccess } from '@angular/http/src/http_utils';
-import { isUndefined, isNull } from 'util';
 import { User } from '../../shared/models/user.model';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { EnumValues } from 'enum-values';
@@ -15,7 +14,6 @@ import * as moment from 'moment';
 import { Project } from '../../shared/models/project.model';
 import { Position } from '../../shared/models/position.model';
 import { Gender } from '../../shared/models/gender.enum';
-
 
 @Component({
   selector: 'app-add-edit-user',
@@ -78,7 +76,7 @@ export class UserAddEditComponent implements OnInit {
   checkUserData(){
       this.route.params.subscribe((params: Params) => {
         const userId = params['id'];
-        this.isNew = isUndefined(userId);
+        this.isNew = userId === undefined;
         this.getUserByIdIfExist(userId);
       });
   }
@@ -155,7 +153,7 @@ export class UserAddEditComponent implements OnInit {
   }
 
   onSelectDate( date: NgbDateStruct ): void {
-    if (!isNull(date)) {
+    if (date !== null) {
       const d = moment({ year: date.year, month: date.month, day: date.day });
       this.userBirthDate = d.format( UI_DATE_FORMAT );
     }

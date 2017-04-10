@@ -6,7 +6,6 @@ import { TranslateService } from 'ng2-translate';
 import { UserDeleteModalComponent } from '../../core/modals/user-delete-modal/user-delete-modal.component';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-users-list',
   templateUrl: 'users-list.component.html'
 })

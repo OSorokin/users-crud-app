@@ -4,6 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
+    "dev:compile":"gulp build:clean-and-compile",
     "ng": "ng serve --host 0.0.0.0 --port 9000 --live-reload-port 49153",
     "prestart": "npm install",
     "start": "npm run ng",
@@ -58,6 +59,16 @@
     "codelyzer": "2.0.0-beta.1",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
+    "gulp": "3.9.1",
+    "gulp-cached": "1.1.0",
+    "gulp-mocha": "3.0.1",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-tslint": "6.0.1",
+    "gulp-typescript": "3.1.2",
+    "gulp-util": "3.0.7",
+    "gulp-watch": "4.3.8",
+    "gulp-zip": "3.2.0",
+    "merge2": "0.3.7",
     "karma": "1.2.0",
     "karma-chrome-launcher": "2.0.0",
     "karma-cli": "1.0.1",
@@ -66,6 +77,10 @@
     "protractor": "4.0.13",
     "ts-node": "1.2.1",
     "tslint": "4.4.2",
-    "typescript": "2.0.10"
+    "typescript": "2.0.10",
+    "run-sequence": "1.2.1"
   }
+
 }
+
+
