@@ -26,7 +26,7 @@ class UserService extends AbstractService {
 
   public async findAll(): Promise<UserDto[]> {
 
-    const users = await User.Model.scope([User.Scopes.INCLUDE_POSITION,User.Scopes.INCLUDE_PROJECT]).findAll();
+    const users = await User.Model.scope([User.Scopes.INCLUDE_POSITION,User.Scopes.INCLUDE_PROJECT]).findAll({order: 'id DESC'});
 
     return _.map(users, (u: User.Instance) => {
       return UserMapper.mapToDto(u);
@@ -50,7 +50,7 @@ class UserService extends AbstractService {
 
   public async update( userId: number, userDto: UserDto ): Promise<UserDto> {
 
-    const user: User.Instance = await  connection.transaction(async(t: Sequelize.Transaction) => {
+    const user: User.Instance = await connection.transaction(async(t: Sequelize.Transaction) => {
       let user = await User.Model.findById(userId, {transaction: t});
 
       if (user.id != userId) {

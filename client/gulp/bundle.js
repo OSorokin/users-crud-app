@@ -19,13 +19,13 @@ gulp.task('bundle:clean', function (done) {
 gulp.task('bundle:copy', ['bundle:clean'], function () {
   return merge2([
     gulp.src([
-      conf.paths.src.packageJson,
+      conf.paths.src.packageJson
     ]).pipe(gulp.dest(conf.paths.folderToContainBundleFiles + '/' + conf.bundle.paths.client)),
     gulp.src([
       conf.paths.src.root + '/**/*',
       '!' + conf.paths.src.root + '/**/*.ts',
       '!' + conf.paths.src.root + '/**/*.map'
-    ]).pipe(gulp.dest(conf.paths.folderToContainBundleFiles + '/' + conf.bundle.paths.client + '/' + conf.paths.src.root)),
+    ]).pipe(gulp.dest(conf.paths.folderToContainBundleFiles + '/' + conf.bundle.paths.client + '/' + conf.paths.src.root))
   ]);
 });
 
@@ -35,7 +35,7 @@ gulp.task('bundle:zip:clean', function (done) {
 
 gulp.task('bundle:zip', ['bundle:zip:clean'], function () {
   var bundleFilename = conf.bundle.constructRevisionName();
-  return gulp.src(conf.paths.folderToContainBundleFiles + '/**/*')
+  return gulp.src([conf.paths.folderToContainBundleFiles + '/**/*','!' + conf.paths.folderToContainBundleFiles + '/server{,/**}'])
     .pipe(zip(bundleFilename))
     .pipe(gulp.dest(conf.paths.folderToContainBundle))
     .pipe(tts4tLog(logger, 'Zip file created: ' + bundleFilename))

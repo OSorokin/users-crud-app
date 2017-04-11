@@ -31,15 +31,6 @@ exports.bundle = {
   fileExt: '.' + EXTENSION_ZIP
 };
 
-exports.aws = {
-  codeDeploy: {
-    applicationName: 'angular2-crud-server',
-    bucket: 'angular2-crud-server-codedeploy',
-    revisionType: 'S3',
-    bundleType: EXTENSION_ZIP,
-    description: 'Angular2-crud-server Application'
-  }
-};
 
 function _constructRevisionName() {
   var logger = _logger('angular2cruds');
