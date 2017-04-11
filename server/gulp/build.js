@@ -74,7 +74,7 @@ function tsCompile(path) {
   compilerOptions.typescript = require('typescript');
   console.info('compile_path: ' + path);
   return gulp.src(path)
-    .pipe(cache('tsCompile'))
+    .pipe(cache('serverCompile'))
     .pipe(duration.step('Cache generation for ' + path))
     .pipe(sourcemaps.init())
     .pipe(duration.step('Sourcemaps init for ' + path))

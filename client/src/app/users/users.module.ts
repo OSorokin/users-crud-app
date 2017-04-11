@@ -11,12 +11,16 @@ import { TranslateModule } from 'ng2-translate';
 import { AlertModule } from 'ng2-bootstrap';
 import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateMomentParserFormatter } from '../shared/date-picker-config';
-import { UI_DATE_FORMAT } from '../app.constants';
 import { ProjectsService } from '../shared/services/projects.service';
 import { PositionsService } from '../shared/services/positions.service';
 import { SelectModule } from 'ng2-select';
 
 // определение маршрутов
+
+export function dateFormatter() {
+  return new NgbDateMomentParserFormatter();
+}
+
 @NgModule({
 
   imports: [
@@ -40,7 +44,7 @@ import { SelectModule } from 'ng2-select';
     ProjectsService,
     PositionsService,
     { provide: NgbDateParserFormatter,
-      useFactory: () => { return new NgbDateMomentParserFormatter(UI_DATE_FORMAT); }
+      useFactory: dateFormatter
     }
   ]
 

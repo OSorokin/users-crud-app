@@ -48,3 +48,4 @@ server/distribution/
 **/*.log.*
 **/*.log
 
+/server/aws-code-deploy/

@@ -6,39 +6,22 @@ exports.logger = _logger;
 
 exports.paths = {
   src: {
-    bin: 'bin',
-    app: 'app',
-    typings: 'typings',
-    common: '../common',
-    commonMain: '../common/main',
-    migrations: 'migrations',
+    root:'src',
+    common:'../common',
     packageJson: 'package.json'
   },
-  codeDeploy: 'code-deploy',
   folderToContainBundleFiles: '../distribution',
-  folderToContainBundle: '../distribution/server/bundle'
+  folderToContainBundle: '../distribution/client/bundle'
 };
 
 var EXTENSION_ZIP = 'zip';
 
 exports.bundle = {
   paths: {
-    codeDeploy: '.',
-    server: 'server',
-    common: 'common'
+    client: 'client'
   },
   constructRevisionName: _constructRevisionName,
   fileExt: '.' + EXTENSION_ZIP
-};
-
-exports.aws = {
-  codeDeploy: {
-    applicationName: 'angular2-crud-server',
-    bucket: 'angular2-crud-server-codedeploy',
-    revisionType: 'S3',
-    bundleType: EXTENSION_ZIP,
-    description: 'Angular2-crud-server Application'
-  }
 };
 
 function _constructRevisionName() {
@@ -62,7 +45,7 @@ function _constructRevisionName() {
     suffix = newSuffix;
   }
 
-  return 'SERVER_' + (new Date()).getTime() + (suffix.length > 0 ? '_' + suffix : '') + '.' + EXTENSION_ZIP;
+  return 'CLIENT_' + (new Date()).getTime() + (suffix.length > 0 ? '_' + suffix : '') + '.' + EXTENSION_ZIP;
 }
 
 function _logger(title) {

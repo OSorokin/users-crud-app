@@ -63,20 +63,20 @@
     </div>
 
       <div class="form-group" >
-          <select *ngIf="isNew" class="form-control" formControlName="position" (ngModelChange)="onValCh($event)">
+          <select *ngIf="isNew" class="form-control" formControlName="position" >
               <option selected disabled></option>
               <option *ngFor="let ps of positions" [attr.value]="ps.id">{{ps.title}}</option>
           </select>
-          <select *ngIf="user.id && !isNew && positions" class="form-control" formControlName="position" (ngModelChange)="onValCh($event)" >
+          <select *ngIf="user.id && !isNew && positions" class="form-control" formControlName="position" >
               <option *ngFor="let ps of positions" [attr.value]="ps.id" [selected]="ps.id === user.position.id" >{{ps.title}}</option>
           </select>
       </div>
       <div class="form-group" >
-          <select *ngIf="isNew" class="form-control" formControlName="project" (ngModelChange)="onValCh($event)">
+          <select *ngIf="isNew" class="form-control" formControlName="project" >
               <option selected disabled></option>
               <option *ngFor="let pt of projects" [attr.value]="pt.id">{{pt.title}}</option>
           </select>
-          <select *ngIf="user.id && !isNew && projects" class="form-control" formControlName="project" (ngModelChange)="onValCh($event)" >
+          <select *ngIf="user.id && !isNew && projects" class="form-control" formControlName="project" >
               <option *ngFor="let pt of projects" [attr.value]="pt.id" [selected]="pt.id === user.project.id" >{{pt.title}}</option>
           </select>
       </div>

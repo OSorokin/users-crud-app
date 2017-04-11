@@ -2,16 +2,20 @@
   "compilerOptions": {
     "baseUrl": "",
     "rootDir": "..",
-    "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
     "lib": ["es6", "dom"],
     "mapRoot": "./",
     "module": "es6",
     "moduleResolution": "node",
     "outDir": "../dist/out-tsc",
     "sourceMap": true,
-    "target": "es6",
+    "target": "es5",
     "typeRoots": [
       "../node_modules/@types"
     ]

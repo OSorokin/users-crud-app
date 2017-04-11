@@ -47,7 +47,6 @@ export class UsersListComponent implements OnInit {
         this.deleteUser(user);
       }
     }).catch(result => {
-      console.log(result);
     });
   }
 

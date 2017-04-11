@@ -4,7 +4,7 @@ import { UI_DATE_FORMAT } from '../app.constants';
 
 export class NgbDateMomentParserFormatter extends NgbDateParserFormatter {
 
-  constructor(private momentFormat: string) {
+  constructor() {
     super();
   };
 
@@ -27,3 +27,4 @@ export class NgbDateMomentParserFormatter extends NgbDateParserFormatter {
   }
 
 }
+

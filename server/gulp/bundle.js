@@ -72,8 +72,7 @@ gulp.task('bundle:zip', ['bundle:zip:clean'], function () {
   return gulp.src(conf.paths.folderToContainBundleFiles + '/**/*')
     .pipe(zip(bundleFilename))
     .pipe(gulp.dest(conf.paths.folderToContainBundle))
-    .pipe(tts4tLog(logger, 'Zip file created: ' + bundleFilename))
-  ;
+    .pipe(tts4tLog(logger, 'Zip file created: ' + bundleFilename));
 });
 
 gulp.task('bundle', function (done) {

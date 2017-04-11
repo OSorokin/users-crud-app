@@ -64,7 +64,6 @@ export class UserAddEditComponent implements OnInit {
       'project': new FormControl('', Validators.required, )
 
     });
-    console.log('constr done');
   }
   
   ngOnInit(){
@@ -105,8 +104,6 @@ export class UserAddEditComponent implements OnInit {
       newUser.position = this.setUserPosition(this.form.get('position').value);
       newUser.project = this.setUserProject(this.form.get('project').value);
 
-      console.log(newUser);
-
       this.userService.create(newUser).subscribe(res => {
         this.isSuccessSaveUser = !isSuccess(res.id);
         this.isErrorSaveUser = isSuccess(res.id);
@@ -119,7 +116,6 @@ export class UserAddEditComponent implements OnInit {
       user.position = this.setUserPosition(this.form.get('position').value);
       user.project = this.setUserProject(this.form.get('project').value);
       user.birth_date = this.userBirthDate;
-      console.log(user);
 
       this.userService.update(this.id, user).subscribe(
         (res) => {
@@ -135,7 +131,7 @@ export class UserAddEditComponent implements OnInit {
   userBirthDateValidator(control: FormControl): {[s: string]: any} {
     const isObject = control.value instanceof Object;
     const regex = new RegExp(BIRTH_DATE);
-    if ( isObject  ) {
+    if ( isObject ) {
       const dt = control.value.day + '/' + control.value.month + '/' + control.value.year;
       if (!regex.test(dt)) {
         return {'birth_date': true};
@@ -162,10 +158,6 @@ export class UserAddEditComponent implements OnInit {
   convertDateToJsonNgbDateStruct ( date: string ): NgbDateStruct {
     const d = moment( date, UI_DATE_FORMAT );
     return { year: d.year(), month: d.month(), day: d.date() };
-  }
-
-  onValCh(obj: any){
-    console.log(this.form.value);
   }
 
   setUserPosition( posId: any ): Position {
